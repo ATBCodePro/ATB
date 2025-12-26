@@ -25,7 +25,7 @@ function renderCards() {
 
     const img = document.createElement("img");
     img.src = card.IMG_URL;
-    img.loading = "lazy";
+    img.loading = "eager";
     img.onclick = () => openModal(card.IMG_URL);
 
     div.appendChild(img);
@@ -151,3 +151,4 @@ sortSelect.addEventListener("change", e => {
   filteredCards = result;
   renderCards();
 });
+
