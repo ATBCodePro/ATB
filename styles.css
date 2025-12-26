@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #030535;
+  color: white;
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  background: #050747;
+  position: sticky;
+  top: 0;
+}
+
+.page-logo {
+  max-width: 40px; /* Adjust size as needed */
+  height: auto; }
+  
+/* Add #jump-to to your existing search/sort/columns style block */
+#search, #sort, #columns, #jump-to {
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Ensure placeholder text in search input is white */
+#search::placeholder {
+  color: #fff;
+  opacity: 0.7;                 /* slightly lighter for placeholder */
+}
+
+/* Focus effect for better UX */
+#search:focus, #sort:focus, #columns:focus {
+  box-shadow: 0 0 5px rgba(0, 191, 255, 0.8);
+}
+
+#card-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 5), 1fr);
+  gap: 0px;
+  padding: 0px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+/* MODAL */
+#modal.hidden {
+  display: none;
+}
+
+#modal {
+  position: fixed;
+  inset: 0;
+  perspective: 1000px; /* Essential for 3D depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+}
+
+#modal-image {
+  position: relative;
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
+  
+  /* Smooth return to center when finger is lifted */
+  transition: transform 0.2s ease-out; 
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Optional: Add a subtle shine layer effect */
+#modal-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
