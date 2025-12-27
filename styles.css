@@ -16,10 +16,14 @@ header {
 
 .page-logo {
   max-width: 40px; /* Adjust size as needed */
-  height: auto; }
-  
+  height: auto;
+}
+
 /* Add #jump-to to your existing search/sort/columns style block */
-#search, #sort, #columns, #jump-to {
+#search,
+#sort,
+#columns,
+#jump-to {
   padding: 8px 12px;
   font-size: 16px;
   background-color: #333;
@@ -34,11 +38,13 @@ header {
 /* Ensure placeholder text in search input is white */
 #search::placeholder {
   color: #fff;
-  opacity: 0.7;                 /* slightly lighter for placeholder */
+  opacity: 0.7; /* slightly lighter for placeholder */
 }
 
 /* Focus effect for better UX */
-#search:focus, #sort:focus, #columns:focus {
+#search:focus,
+#sort:focus,
+#columns:focus {
   box-shadow: 0 0 5px rgba(0, 191, 255, 0.8);
 }
 
@@ -75,7 +81,7 @@ header {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 #modal-image {
@@ -84,9 +90,9 @@ header {
   max-height: 85%;
   border-radius: 30px;
   box-shadow: 0 0 30px rgba(0, 191, 255, 0.4);
-  
+
   /* Smooth return to center when finger is lifted */
-  transition: transform 0.2s ease-out; 
+  transition: transform 0.2s ease-out;
   will-change: transform;
   transform-style: preserve-3d;
 }
@@ -97,7 +103,31 @@ header {
   position: absolute;
   inset: 0;
   border-radius: 30px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%
+  );
   pointer-events: none;
 }
 
+/* Styling for the button to match your theme */
+#dark-mode-toggle {
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+#dark-mode-toggle:active {
+  background-color: #555;
+}
+
+/* The actual filter logic */
+/* When this class is added to the grid, all images inside it invert */
+.darkness-active img {
+  filter: invert(100%);
+}
