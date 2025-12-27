@@ -16,6 +16,7 @@ const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-image");
 const colSelect = document.getElementById("columns");
 const jumpSelect = document.getElementById("jump-to");
+const darkToggle = document.getElementById("dark-mode-toggle");
 
 function renderCards() {
   grid.innerHTML = "";
@@ -25,7 +26,7 @@ function renderCards() {
 
     const img = document.createElement("img");
     img.src = card.IMG_URL;
-    img.loading = "eager";
+    img.loading = "lazy";
     img.onclick = () => openModal(card.IMG_URL);
 
     div.appendChild(img);
@@ -127,6 +128,19 @@ searchInput.addEventListener("input", e => {
   renderCards();
 });
 
+// 2. Add the click event listener
+darkToggle.addEventListener("click", () => {
+  // This toggles the class on the grid container
+  grid.classList.toggle("darkness-active");
+
+  // Optional: Change button text based on state
+  if (grid.classList.contains("darkness-active")) {
+    darkToggle.textContent = "Normal Mode";
+  } else {
+    darkToggle.textContent = "Darkness Mode";
+  }
+});
+
 /* SORT & FILTER */
 sortSelect.addEventListener("change", e => {
   const mode = e.target.value;
@@ -151,4 +165,3 @@ sortSelect.addEventListener("change", e => {
   filteredCards = result;
   renderCards();
 });
-
